@@ -16,6 +16,10 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         _colddown -= Time.deltaTime;
+        if (_colddown < 0)
+        {
+            gameObject.GetComponent<Collider2D>().enabled = true;//cd完了重新enable碰撞
+        }
     }
     public void ChasePlayer(Vector3 location)
     {
@@ -26,5 +30,6 @@ public class Enemy : MonoBehaviour
     {
         agent.SetDestination(transform.position);
         _colddown = 2f;
+        gameObject.GetComponent<Collider2D>().enabled = false;//确保你扣血以后敌怪不会堵你
     }
 }
