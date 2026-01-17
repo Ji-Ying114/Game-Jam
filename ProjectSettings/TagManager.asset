@@ -7,6 +7,9 @@ TagManager:
   - Traps
   - Obstacle
   - Enemy
+  - Collectable
+  - RoomSwitcher
+  - Evac
   layers:
   - Default
   - TransparentFX
