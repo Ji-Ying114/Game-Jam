@@ -11360,6 +11360,7 @@ MonoBehaviour:
   _timeText: {fileID: 190798543}
   _soundSystem: {fileID: 1913323807}
   _reachSystem: {fileID: 220236956}
+  _evacZone: {fileID: 251273073}
   _speed: 4
   _maxlife: 7
   _soundMultiplier: 2
