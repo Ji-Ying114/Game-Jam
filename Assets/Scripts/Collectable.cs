@@ -5,6 +5,7 @@ public class Collectable : MonoBehaviour
     [SerializeField] private GameObject _edge;
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _pickupSystem;
+    [SerializeField] private Sprite _icon;
     [Space]
     [SerializeField] private string _itemName;
     [SerializeField] private int _weight;
@@ -15,6 +16,7 @@ public class Collectable : MonoBehaviour
     {
         _player = GameObject.FindGameObjectWithTag("Player");
         _pickupSystem = GameObject.FindGameObjectWithTag("PickupSystem");
+        _icon = GetComponent<SpriteRenderer>().sprite;
     }
     public void ShowEdge()
     {
