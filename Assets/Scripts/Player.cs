@@ -55,6 +55,10 @@ public class Player : MonoBehaviour
     [Space]
     public List<GameObject> _Backback;
     public int _backpackScore;
+    public bool getIsDay()//获取白天黑夜状态
+    {
+        return isDay;
+    }
     void Start()
     {
         _sessionTime = _maxSessionTime;
@@ -250,8 +254,10 @@ public class Player : MonoBehaviour
         }
         foreach (var collectable in _collectables)
         {
-            if(!collectable.GetComponent<Collectable>().IsPicked())
-                collectable.SetActive(true);
+            if(!collectable.GetComponent<Collectable>().IsPicked() && !collectable.GetComponent<Collectable>()._dropped_during_day)
+                collectable.SetActive(true);//白天掉落的消失，晚上的显示
+            if (!collectable.GetComponent<Collectable>().IsPicked() && collectable.GetComponent<Collectable>()._dropped_during_day)
+                collectable.SetActive(false);//晚上掉落的消失，白天的显示
         }
         _evacZone.SetActive(false);
     }
@@ -266,8 +272,11 @@ public class Player : MonoBehaviour
         }
         foreach (var collectable in _collectables)
         {
-            if (!collectable.GetComponent<Collectable>().IsPicked())
-                collectable.SetActive(false);
+            if (!collectable.GetComponent<Collectable>().IsPicked() && !collectable.GetComponent<Collectable>()._dropped_during_day)
+                collectable.SetActive(false);//白天掉落的显示，晚上的消失
+            if (!collectable.GetComponent<Collectable>().IsPicked() && collectable.GetComponent<Collectable>()._dropped_during_day)
+                collectable.SetActive(true);//晚上掉落的显示，白天的消失
+
         }
         _cooldown = 30;
         _evacZone.SetActive(true);

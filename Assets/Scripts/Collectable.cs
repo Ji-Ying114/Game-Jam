@@ -12,6 +12,9 @@ public class Collectable : MonoBehaviour
     [SerializeField] private int _value;
     [Space]
     [SerializeField] private bool _isPicked;
+    [Space]
+    [Header("跨script调用，不用乱动里面的值")]
+    public bool _dropped_during_day = false;
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
@@ -33,6 +36,14 @@ public class Collectable : MonoBehaviour
     }
     public void Dropped()
     {
+        if (_player.gameObject.GetComponent<Player>().getIsDay())//防止白天drop出bug
+        {
+            _dropped_during_day = true;
+        }
+        else
+        {
+            _dropped_during_day = false;
+        }
         _isPicked = false;
         transform.position = _player.transform.position + new Vector3(1f, 0f, 0f);
         _pickupSystem.GetComponent<PickupSystem>().RemoveFromBackpack(_weight, _value);
