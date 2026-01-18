@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _soundSystem;
     [SerializeField] private GameObject _reachSystem;
     [SerializeField] private GameObject _evacZone;
+    [SerializeField] private Animator _animator;
     [Space]
     [Header("数据")]
     public int _speed;
@@ -58,11 +59,12 @@ public class Player : MonoBehaviour
     private bool _isAccelerated;
     private float _accelratorTimer;
     private bool _isBackpackActive;
+    private bool _started;
     [Space]
     [SerializeField] private float _maxWarningLevel;
     [Space]
     [SerializeField] private List<GameObject> _enemys;
-    [SerializeField] private List<GameObject> _collectables;
+    [SerializeField] private List<GameObject> _collectables = new List<GameObject>();
     [Space]
     public List<GameObject> _backpack;
     public int _backpackScore;
@@ -78,20 +80,26 @@ public class Player : MonoBehaviour
         life = _maxlife;
         _sessionTime = _maxSessionTime;
         _enemys = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
-        _collectables = new List<GameObject>(GameObject.FindGameObjectsWithTag("Collectable"));
         foreach (var enemy in _enemys)
         {
             enemy.SetActive(false);
         }
-        foreach (var collectable in _collectables)
-        {
-            collectable.SetActive(false);
-        }
+
         _cooldown = 30;
         SetLifeBar(0f);
     }
     void Update()
     {
+        if (!_started)
+        {
+            _collectables = new List<GameObject>(GameObject.FindGameObjectsWithTag("Collectable"));
+            foreach (var collectable in _collectables)
+            {
+                collectable.SetActive(false);
+            }
+            _started = true;
+        }
+
         //玩家移动速度调节
         float judge = Input.GetAxis("Mouse ScrollWheel");
         {     if (judge > 0f)
@@ -136,7 +144,48 @@ public class Player : MonoBehaviour
             yspeed = yspeed / magnitude * _moveSpeed / 10f;
         }
         magnitude = (float)System.Math.Sqrt(xspeed * xspeed + yspeed * yspeed);
-        _soundSystem.transform.localScale = new Vector3(magnitude * _soundMultiplier, magnitude * _soundMultiplier, magnitude * _soundMultiplier);
+        if (magnitude < 0.1)
+        {
+            _animator.SetBool("IsUp", false);
+            _animator.SetBool("IsDown", false);
+            _animator.SetBool("IsLeft", false);
+            _animator.SetBool("IsRight", false);
+        }
+        else if(System.Math.Abs(xspeed)< System.Math.Abs(yspeed))
+        {
+            if (yspeed > 0) 
+            {
+                _animator.SetBool("IsUp", true);
+                _animator.SetBool("IsDown", false);
+                _animator.SetBool("IsLeft", false);
+                _animator.SetBool("IsRight", false);
+            }
+            else
+            {
+                _animator.SetBool("IsUp", false);
+                _animator.SetBool("IsDown", true);
+                _animator.SetBool("IsLeft", false);
+                _animator.SetBool("IsRight", false);
+            }
+        }
+        else
+        {
+            if (xspeed > 0)
+            {
+                _animator.SetBool("IsUp", false);
+                _animator.SetBool("IsDown", false);
+                _animator.SetBool("IsLeft", false);
+                _animator.SetBool("IsRight", true);
+            }
+            else
+            {
+                _animator.SetBool("IsUp", false);
+                _animator.SetBool("IsDown", false);
+                _animator.SetBool("IsLeft", true);
+                _animator.SetBool("IsRight", false);
+            }
+        }
+            _soundSystem.transform.localScale = new Vector3(magnitude * _soundMultiplier, magnitude * _soundMultiplier, magnitude * _soundMultiplier);
         _rb.velocity = new Vector2(xspeed, yspeed);
         if(!isDay) _warningLevel += magnitude * 0.5f *Time.deltaTime;
         //倒计时与状态更新
@@ -444,5 +493,9 @@ public class Player : MonoBehaviour
     {
         GameObject item = collectable.gameObject;
         _backpack.Add(item);
+    }
+    public void PlayPickUpAnim()
+    {
+        _animator.SetTrigger("Pick");
     }
 }

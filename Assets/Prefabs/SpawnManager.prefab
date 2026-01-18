@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefabs: []
+  player: {fileID: 7878095602547755780, guid: 3e55c41ca976a51429df5d730b07c464, type: 3}
   itemCount: 0
   spawnArea: {fileID: 6186237179886039868}
   wallTilemap: {fileID: 0}

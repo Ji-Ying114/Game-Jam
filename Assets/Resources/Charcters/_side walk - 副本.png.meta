@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ae6e06aff0f93dd448e9598faaf20104
+guid: 51a6192fbedebcc49aa3ba4ce5aacf2f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -107,7 +107,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: _down idle_0
+      name: "_side walk - \u526F\u672C_0"
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58ca6094436f68844ba3031e5afb927a
-      internalID: -1785131228
+      spriteID: ff54ad162cbaf4f4790f10b209b2c35a
+      internalID: -495032206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _down idle_1
+      name: "_side walk - \u526F\u672C_1"
       rect:
         serializedVersion: 2
         x: 64
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dce8f2bb8405cbe41a3af69694f06c4e
-      internalID: -828762411
+      spriteID: 00429860637a7264a80350a96b56d84e
+      internalID: -1930541294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _down idle_2
+      name: "_side walk - \u526F\u672C_2"
       rect:
         serializedVersion: 2
         x: 128
@@ -192,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d2255d8236958b48a6d8f4848fbd4a0
-      internalID: 337785792
+      spriteID: 07afd83135e20f9438e180d3eadf0eea
+      internalID: -1244131814
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _down idle_3
+      name: "_side walk - \u526F\u672C_3"
       rect:
         serializedVersion: 2
         x: 192
@@ -213,17 +213,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f353c471ecaf7b04f9f28717e9daffa9
-      internalID: 1060239120
+      spriteID: 715bd3c1b7145a148af3144c73a7db25
+      internalID: 2135795951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _down idle_4
+      name: "_side walk - \u526F\u672C_4"
       rect:
         serializedVersion: 2
-        x: 0
+        x: 128
         y: 0
         width: 64
         height: 64
@@ -234,8 +234,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 707c71926aed53540a8534f73f183b73
-      internalID: 813314646
+      spriteID: ae372822333d82b46bad74cd0abcf657
+      internalID: 533702287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "_side walk - \u526F\u672C_5"
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 188a48d75351c974c806e7a42fb0437b
+      internalID: 661374646
       vertices: []
       indices: 
       edges: []
@@ -251,11 +272,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      _down idle_0: -1785131228
-      _down idle_1: -828762411
-      _down idle_2: 337785792
-      _down idle_3: 1060239120
-      _down idle_4: 813314646
+      "_side walk - \u526F\u672C_0": -495032206
+      "_side walk - \u526F\u672C_1": -1930541294
+      "_side walk - \u526F\u672C_2": -1244131814
+      "_side walk - \u526F\u672C_3": 2135795951
+      "_side walk - \u526F\u672C_4": 533702287
+      "_side walk - \u526F\u672C_5": 661374646
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

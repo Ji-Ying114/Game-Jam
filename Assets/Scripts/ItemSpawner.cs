@@ -8,6 +8,7 @@ public class ItemSpawner : MonoBehaviour
     [Header("生成设置")]
     [Tooltip("生成的物品")]
     public GameObject[] itemPrefabs;
+    public GameObject player;
 
     [Tooltip("生成的数量")]
     public int itemCount = 8;
@@ -47,7 +48,7 @@ public class ItemSpawner : MonoBehaviour
             {
                 Vector3 spawnPos = wallTilemap.GetCellCenterWorld(cellPos);
                 GameObject spawn = itemPrefabs[Random.Range(0, itemPrefabs.Length)];
-                Instantiate(spawn, spawnPos, Quaternion.identity);
+                GameObject spawned = Instantiate(spawn, spawnPos, Quaternion.identity);
                 return;
             }
         }

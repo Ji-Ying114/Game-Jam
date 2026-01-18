@@ -81,6 +81,7 @@ public class PickupSystem : MonoBehaviour
             _currentSlotUsed += 1;
             _currentScore += pickedItem.GetComponent<Collectable>().GetValue();
             UpdateBackpackUI(_currentSlotUsed, _currentCapacityUsed, _currentScore);
+            _player.GetComponent<Player>().PlayPickUpAnim();
         }
     }
     public void RemoveFromBackpack(int weight, int value)
