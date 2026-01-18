@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     [SerializeField] private TMP_Text _timeText;
     [SerializeField] private TMP_Text _accelratorText;
     [SerializeField] private TMP_Text _medpackText;
+    [SerializeField] private GameObject _backPackUI;
     [SerializeField] private GameObject _soundSystem;
     [SerializeField] private GameObject _reachSystem;
     [SerializeField] private GameObject _evacZone;
@@ -56,6 +57,7 @@ public class Player : MonoBehaviour
     private int _medpackCount;
     private bool _isAccelerated;
     private float _accelratorTimer;
+    private bool _isBackpackActive;
     [Space]
     [SerializeField] private float _maxWarningLevel;
     [Space]
@@ -298,6 +300,19 @@ public class Player : MonoBehaviour
                 _accelratorCount -= 1;
                 _accelratorTimer = _accelratorDuration;
                 _isAccelerated = true;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (_isBackpackActive == false)
+            {
+                _backPackUI.SetActive(true);
+                _isBackpackActive = true;
+            }
+            else
+            {
+                _backPackUI.SetActive(false);
+                _isBackpackActive = false;
             }
         }
     }
