@@ -13329,6 +13329,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 790939735264316356, guid: fa03574d4530acd4680ab369a80665af, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1842852240558275426, guid: fa03574d4530acd4680ab369a80665af, type: 3}
       propertyPath: m_SortingOrder
       value: 2
@@ -13338,6 +13342,10 @@ PrefabInstance:
       value: Map
       objectReference: {fileID: 0}
     - target: {fileID: 3497881971248581044, guid: fa03574d4530acd4680ab369a80665af, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011039603606663433, guid: fa03574d4530acd4680ab369a80665af, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
