@@ -32,9 +32,13 @@ public class AggroUI : MonoBehaviour
         {
             ui.sprite = aggroSprites[3];
         }
-        else if (aggroValue >= 80 && aggroValue <= 100)
+        else if (aggroValue >= 80 && aggroValue < 100)
         {
             ui.sprite = aggroSprites[4];
+        }
+        else if (aggroValue = 100)
+        {
+            ui.sprite = aggroSprites[5];
         }
     }
 //-----------------------------------------------------------------------------------
